@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model tbl_drive {
+  no               Int    @id @default(autoincrement())
+  type             String @db.VarChar(10)
+  start_time       String @db.VarChar(20)
+  end_time         String @db.VarChar(20)
+  current_distance Int
+  cost             Int
+  location         String @db.VarChar(50)
+}
